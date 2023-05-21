@@ -1,16 +1,21 @@
 {% extends "base.html" %}
 {% block content %}
-<a class="backlink" href="/">Home</a>
-<h1>{{ post }}</h1>
-<p class="byline">
-  Posted by {{ post.author.username }} &mdash; {{ post.published_date }}
-</p>
-<div class="post-body">
-  {{ post.text }}
+<a class="backlink" href="/">🏡 Home</a>
+<div class="post">
+  <span class="shadow"><h1>{{ post }}</h1></span>
+  <p class="byline">
+    Posted by {{ post.author.username }} &mdash; {{ post.published_date }}
+  </p>
+  <div class="post-body">
+    {{ post.text }}
+  </div>
+  <div class="categories">
+    <p class="under">Categories:</p>
+    <ul>
+      {% for category in post.categories.all %}
+        <li>{{ category }}</li>
+      {% endfor %}
+    </ul>
+  </div>
 </div>
-<ul class="categories">
-  {% for category in post.categories.all %}
-    <li>{{ category }}</li>
-  {% endfor %}
-</ul>
 {% endblock %}

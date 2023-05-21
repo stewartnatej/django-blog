@@ -1,5 +1,5 @@
 body {
-    background-color: #eee;
+    background-color: #34568B;
     color: #111;
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
     Helvetica, Arial, "Lucida Grande", sans-serif;
@@ -15,7 +15,7 @@ body {
 
 #header {
     background-color: #333;
-    border-botton: 1px solid #111;
+    border-bottom: 2px solid #111;
     margin:0;
     padding:0;
 }
@@ -79,8 +79,51 @@ div.entry-body {
 ul.categories {
     list-style: none;
     list-style-type: none;
+    color: red;
+    background: #ff9999;
+  padding: 20px;
 }
 
 ul.categories li {
     display: inline;
+}
+
+.backlink {
+    font-weight: bold;
+    padding: 10px;
+}
+
+.backlink:visited{
+    color:inherit
+}
+
+.post-body {
+    border: 4px solid #5B5EA6;
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: #F7CAC9;
+    width: 300px;
+    font-weight: bold;
+}
+
+.byline {
+    font-size: 80%;
+}
+
+.post {
+    border: 6px solid #DFCFBE;
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: #92A8D1;
+    width: 400px;
+    left: 20px;
+    position: relative;
+}
+
+.shadow {
+    text-shadow: 2px 2px 2px #5B5EA6;
+}
+
+.under {
+  text-decoration: underline;
 }
