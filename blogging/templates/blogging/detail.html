@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<a class="backlink" href="/">🏡 Home</a>
+<div class="post">
+  <h1 class="shadow">{{ post }}</h1>
+  <p class="byline">
+    Posted by {{ post.author.username }} &mdash; {{ post.published_date }}
+  </p>
+  <div class="post-body">
+    {{ post.text }}
+  </div>
+  <div class="categories">
+    <p class="under">Categories:</p>
+    <ul>
+      {% for category in post.categories.all %}
+        <li>{{ category }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+{% endblock %}
