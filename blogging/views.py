@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, Http404
-from django.views.generic.list import ListView
-from django.views.generic.detail import DetailView
+from django.views.generic import ListView, DetailView
 from blogging.models import Post
 
 
@@ -44,5 +43,5 @@ def detail_view(request, post_id):
 
 class PostDetailView(DetailView):
     """more robust class-based view"""
-    model = Post
+    queryset = Post.objects.exclude(published_date__exact=None)
     template_name = 'blogging/detail.html'

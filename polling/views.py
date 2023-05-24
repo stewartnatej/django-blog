@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from django.http import Http404
-from django.views.generic.list import ListView
-from django.views.generic.detail import DetailView
+from django.views.generic import ListView, DetailView
 from polling.models import Poll
 from asgiref.sync import sync_to_async
 
