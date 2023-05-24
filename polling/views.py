@@ -1,6 +1,5 @@
 from django.shortcuts import render
-from django.http import Http404, HttpResponseRedirect
-from django.urls import reverse
+from django.http import Http404
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from polling.models import Poll

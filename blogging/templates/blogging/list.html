@@ -2,7 +2,7 @@
 {% block content %}
   <h1 class="shadow">📜 Recent Posts 📜</h1>
   {% comment %} here is where the query happens {% endcomment %}
-  {% for post in posts %}
+  {% for post in post_list %}
   <div class="post">
     <h2 class="shadow">
       <a href="{% url 'blog_detail' post.pk %}">{{ post }}</a>
