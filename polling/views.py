@@ -19,7 +19,8 @@ class PollListView(ListView):
 
 async def list_view_async(request):
     """
-    experiment in async. could not find a way to make the template render asynchronously.
+    experiment in async. it's very simple to implement an async view,
+    but i could not find a way to make the template render asynchronously.
     the only thing i got working was adding the below in settings.py, but that's not good.
     os.environ["DJANGO_ALLOW_ASYNC_UNSAFE"] = "true"
     https://docs.djangoproject.com/en/4.2/topics/async/#envvar-DJANGO_ALLOW_ASYNC_UNSAFE
