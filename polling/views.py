@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from django.http import Http404
+from django.http import Http404, HttpResponseRedirect
+from django.urls import reverse
 from django.views.generic import ListView, DetailView
 from polling.models import Poll
 from asgiref.sync import sync_to_async
@@ -44,6 +45,8 @@ def detail_view(request, poll_id):
             poll.score -= 1
         poll.save()
 
+    # this is a bad way to render a page after a POST because the data is not cleared.
+    # see PollDetailView for the right way
     context = {'poll': poll}
     return render(request, 'polling/detail.html', context)
 
@@ -62,5 +65,6 @@ class PollDetailView(DetailView):
             poll.score -= 1
         poll.save()
 
-        context = {"poll": poll}
-        return render(request, self.template_name, context)
+        # Always return an HttpResponseRedirect after successfully dealing with POST data.
+        # This prevents data from being posted twice if a user hits Back or Refresh
+        return HttpResponseRedirect(reverse("poll_detail", args=(poll.id,)))
