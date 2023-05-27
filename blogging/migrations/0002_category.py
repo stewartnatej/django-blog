@@ -4,19 +4,31 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('blogging', '0001_initial'),
+        ("blogging", "0001_initial"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Category',
+            name="Category",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.TextField(max_length=12)),
-                ('description', models.TextField(blank=True)),
-                ('posts', models.ManyToManyField(blank=True, related_name='categories', to='blogging.post')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.TextField(max_length=12)),
+                ("description", models.TextField(blank=True)),
+                (
+                    "posts",
+                    models.ManyToManyField(
+                        blank=True, related_name="categories", to="blogging.post"
+                    ),
+                ),
             ],
         ),
     ]

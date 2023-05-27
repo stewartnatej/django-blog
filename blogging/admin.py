@@ -7,6 +7,7 @@ from blogging.models import Post, Category
 
 class CategoryInLine(admin.TabularInline):
     """allows us to change categories from the post page"""
+
     model = Category.posts.through
 
 
@@ -18,4 +19,5 @@ class PostAdmin(admin.ModelAdmin):
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
     """removes the ability to categorize posts from the category page"""
-    exclude = ('posts',)
+
+    exclude = ("posts",)

@@ -5,5 +5,5 @@ install:
   - pip install -r requirements.txt
   - python manage.py migrate
 script:
-  - python manage.py migrate
+  - black --check blogging frog_jog_blog polling
   - python manage.py test

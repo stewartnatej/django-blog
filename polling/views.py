@@ -8,14 +8,15 @@ from asgiref.sync import sync_to_async
 
 def list_view(request):
     """function version of the view"""
-    context = {'polls': Poll.objects.all()}
-    return render(request, 'polling/list.html', context)
+    context = {"polls": Poll.objects.all()}
+    return render(request, "polling/list.html", context)
 
 
 class PollListView(ListView):
     """more robust class-based view"""
+
     model = Poll
-    template_name = 'polling/list.html'
+    template_name = "polling/list.html"
 
 
 async def list_view_async(request):
@@ -27,8 +28,8 @@ async def list_view_async(request):
     https://docs.djangoproject.com/en/4.2/topics/async/#envvar-DJANGO_ALLOW_ASYNC_UNSAFE
     """
     polls = await sync_to_async(Poll.objects.all)()  # ORM is not async (yet)
-    context = {'polls': polls}
-    return render(request, 'polling/list.html', context)
+    context = {"polls": polls}
+    return render(request, "polling/list.html", context)
 
 
 def detail_view(request, poll_id):
@@ -38,8 +39,8 @@ def detail_view(request, poll_id):
     except Poll.DoesNotExist:
         raise Http404
 
-    if request.method == 'POST':
-        if request.POST.get('vote') == 'Yes':
+    if request.method == "POST":
+        if request.POST.get("vote") == "Yes":
             poll.score += 1
         else:
             poll.score -= 1
@@ -47,14 +48,15 @@ def detail_view(request, poll_id):
 
     # this is a bad way to render a page after a POST because the data is not cleared.
     # see PollDetailView for the right way
-    context = {'poll': poll}
-    return render(request, 'polling/detail.html', context)
+    context = {"poll": poll}
+    return render(request, "polling/detail.html", context)
 
 
 class PollDetailView(DetailView):
     """more robust class-based view"""
+
     model = Poll
-    template_name = 'polling/detail.html'
+    template_name = "polling/detail.html"
 
     def post(self, request, *args, **kwargs):
         poll = self.get_object()

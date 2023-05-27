@@ -18,11 +18,12 @@ class Post(models.Model):
 class Category(models.Model):
     name = models.TextField(max_length=12)
     description = models.TextField(blank=True)
-    posts = models.ManyToManyField(Post, blank=True, related_name='categories')
+    posts = models.ManyToManyField(Post, blank=True, related_name="categories")
 
     def __str__(self):
         return self.name
 
     class Meta:
         """format admin links to the list of categories"""
-        verbose_name_plural = 'Categories'
+
+        verbose_name_plural = "Categories"
