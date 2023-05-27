@@ -10,7 +10,7 @@ After `python manage.py`
 - `startapp polling`
 - `makemigrations` and then `manage.py migrate`
 - `startapp blogging` and then both migration commands
-- `test blogging`
+- `test {blogging}` leave out the app name to test all apps
 
 # Django shell
 Helpful for testing code snippets
