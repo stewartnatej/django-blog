@@ -28,7 +28,15 @@ Helpful for testing code snippets
 # Travis CI
 If the database is not in the repo, you can create it with `python manage.py migrate` in .travis.yml.
 For this to work, you'll need to run `makemigrations` and commit the migration files to the repo.
+Environment variables are handled in the Travis UI.
 
+
+# Heroku
+Environment variables:
+- `heroku config:set DJANGO_SETTINGS_MODULE=mysite.heroku`
+- `heroku config:set SECRET_KEY={secret key}`
+- `heroku addons:create heroku-postgresql:hobby-dev`
+- `heroku config`
 
 # async
 I never found a way to implement async templates, so the below info is just for historical purposes.
