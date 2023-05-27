@@ -2,6 +2,7 @@
 - http://127.0.0.1:8000
 - Admin console: http://127.0.0.1:8000/admin
 
+
 # Commands
 After `python manage.py`
 - `runserver`
@@ -11,6 +12,7 @@ After `python manage.py`
 - `makemigrations` and then `manage.py migrate`
 - `startapp blogging` and then both migration commands
 - `test {blogging}` leave out the app name to test all apps
+
 
 # Django shell
 Helpful for testing code snippets
@@ -22,11 +24,17 @@ Helpful for testing code snippets
 - `p1.author = all_users[0]`
 - `p1.save()`
 
+
+# Travis CI
+If the database is not in the repo, you can create it with `python manage.py migrate` in .travis.yml.
+For this to work, you'll need to run `makemigrations` and commit the migration files to the repo.
+
+
 # async
 I never found a way to implement async templates, so the below info is just for historical purposes.
 More info about that adventure can be found in polling\views.py
 
-### Launch the app:
+### Launch the app asynchronously:
 `python -m uvicorn frog_jog_blog.asgi:application`. When running in dev environment, add `--reload`
 
 This just spawns a single process, which is usually sufficient for dev. For a production app you may want more.
