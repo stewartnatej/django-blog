@@ -1,4 +1,5 @@
-# A blog, on Django
+# A blog, using Django
+- https://peak-social.herokuapp.com/ 
 - http://127.0.0.1:8000
 - Admin console: http://127.0.0.1:8000/admin
 
@@ -32,11 +33,23 @@ Environment variables are handled in the Travis UI.
 
 
 # Heroku
-Environment variables:
-- `heroku config:set DJANGO_SETTINGS_MODULE=mysite.heroku`
-- `heroku config:set SECRET_KEY={secret key}`
-- `heroku addons:create heroku-postgresql:hobby-dev`
-- `heroku config`
+- `heroku create peak-social`
+- `heroku config:set DJANGO_SETTINGS_MODULE=frog_jog_blog.heroku` uses heroku-specific settings
+- `heroku config:set django_key={secret key}`
+- `heroku addons:create heroku-postgresql:mini`
+- `heroku config` shows the environment variables
+- ensure requirements.txt is up to date
+- ensure all changes are committed to `main`
+- `git push heroku main`
+- `heroku run python manage.py createsuperuser` creates django superuser
+- `heroku open`
+
+
+# requirements.txt
+It's better to be specific about package versions.
+I want to run 3.11 on Heroku, but Travis doesn't offer 3.11.
+Keeping the versions ambiguous ensures they can be installed on both systems.
+
 
 # async
 I never found a way to implement async templates, so the below info is just for historical purposes.

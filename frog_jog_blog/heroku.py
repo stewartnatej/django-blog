@@ -3,7 +3,7 @@ Special settings that will only be used when deploying to Heroku
 """
 import os
 import dj_database_url
-from settings import *
+from .settings import *
 
 DATABASES = {
     "default": dj_database_url.config(
