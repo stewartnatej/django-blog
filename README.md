@@ -33,7 +33,7 @@ Environment variables are handled in the Travis UI.
 
 
 # Heroku
-Initial setup
+### Initial setup
 - `heroku create peak-social`
 - `heroku config:set DJANGO_SETTINGS_MODULE=frog_jog_blog.heroku` uses heroku-specific settings
 - `heroku config:set django_key={secret key}`
@@ -41,12 +41,15 @@ Initial setup
 - `heroku config` shows the environment variables
 - `heroku run python manage.py createsuperuser` creates django superuser
 
-Manually deploying updates
+### Manually deploying updates
 - ensure requirements.txt is updated
 - ensure changes are committed to your desired branch
   - `git push heroku main` if changes are committed to `main`
   - `git push heroku dev:main` if changes are committed to `dev`
 - `heroku open`
+
+### Continuous Deployment
+Configured in Heroku UI
 
 
 # requirements.txt
