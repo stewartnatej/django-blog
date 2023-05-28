@@ -13,7 +13,7 @@ DATABASES = {
 
 DEBUG = False
 TEMPLATE_DEBUG = False
-STATIC_ROOT = STATIC_ROOT = "/blogging/static/"
+STATIC_ROOT = STATIC_ROOT = "/app/static/"
 SECRET_KEY = os.environ.get("django_key")
 ALLOWED_HOSTS = ["*"]
 
