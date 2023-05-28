@@ -13,9 +13,9 @@ DATABASES = {
 
 DEBUG = False
 TEMPLATE_DEBUG = False
-STATIC_ROOT = path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = path.join(BASE_DIR, "staticfiles")
 STATICFILES_DIRS = [
-    path.join(BASE_DIR, 'static'),
+    path.join(BASE_DIR, "static"),
 ]
 SECRET_KEY = environ.get("django_key")
 ALLOWED_HOSTS = ["*"]
