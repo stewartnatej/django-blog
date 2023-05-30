@@ -1,11 +1,10 @@
-# A blog, using Django
-- https://peak-social.herokuapp.com/ 
-- http://127.0.0.1:8000
-- Admin console: http://127.0.0.1:8000/admin
+# A blogging and polling app, using Django
+- https://peak-social.herokuapp.com/
 
 
-# Commands
-After `python manage.py`
+# Django
+### Managing the app
+`python manage.py` ...
 - `runserver`
 - `migrate`
 - `createsuperuser`
@@ -15,7 +14,7 @@ After `python manage.py`
 - `test {blogging}` leave out the app name to test all apps
 
 
-# Django shell
+### Shell
 Helpful for testing code snippets
 - `python manage.py shell`
 - `from blogging.models import Post`
@@ -52,10 +51,16 @@ Environment variables are handled in the Travis UI.
 Configured in Heroku UI
 
 
+# black
+`black {--check} blogging frog_jog_blog polling`
+- running without `--check` will reformat the file
+
+
 # requirements.txt
 It's better to be specific about package versions.
 I want to run 3.11 on Heroku, but Travis doesn't offer 3.11.
 Keeping the versions ambiguous ensures they can be installed on both systems.
+The important thing is the Django version, due to some breaking changes.
 
 
 # async

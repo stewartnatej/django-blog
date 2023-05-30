@@ -10,13 +10,15 @@
 <body>
     <div id="header">  {# header begins here #}
         <ul id="control-bar">
+            <li><a href="/">👀 posts</a></li>
+            <li><a href="/polling">✅ polls</a></li>
             {% if user.is_authenticated %}
                 {% if user.is_staff %}
-                    <li><a href="{% url 'admin:index' %}">admin</a></li>
+                    <li><a href="{% url 'admin:index' %}">🧙‍♂️ admin</a></li>
                 {% endif %}
-                <li><a href="{% url 'logout' %}">logout</a></li>
+                <li><a href="{% url 'logout' %}">👋 logout</a></li>
             {% else %}
-                <li><a href="{% url 'login' %}">login</a></li>
+                <li><a href="{% url 'login' %}">🧑 login</a></li>
             {% endif %}
         </ul>
     </div>

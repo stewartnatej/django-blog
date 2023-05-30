@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 {% block content %}
-<a class="backlink" href="/polling">🏡 Polls</a>
 <div class="post">
     <h1 class="shadow">{{ poll.title }}</h1>
     <div class="post-body">
@@ -12,9 +11,10 @@
     <div class="poll-vote">
         <form method="POST">
             {% csrf_token %}
-            <input type="submit" name="vote" value="Yes">
-            <input type="submit" name="vote" value="No">
+            <input type="submit" name="vote" value="Yes" class="button3">
+            <input type="submit" name="vote" value="No" class="button3">
         </form>
     </div>
 </div>
+<a class="backlink" href="/polling">✅ back to all polls</a>
 {% endblock %}
