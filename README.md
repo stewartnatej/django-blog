@@ -2,6 +2,16 @@
 https://peak-social.herokuapp.com/
 
 
+# API
+https://peak-social.herokuapp.com/api/
+
+When requesting specific categories like `/api/categories/Gardening`, note that the category is case-sensitive.
+This is not the case for posts and users. You can work around this by using `/api/categories?search=gardening`.
+
+To request a specific post, use `api/posts/my%20first%20post`.
+To request all posts from a user, you can use `/api/posts?search=anonymous`
+
+
 # Django
 ### Managing the app
 `python manage.py` ...

@@ -22,9 +22,9 @@ from rest_framework.routers import DefaultRouter
 from blogging.views import PostViewSet, UserViewSet, CategoryViewSet
 
 router = DefaultRouter()
-router.register("posts", PostViewSet, basename="Post")
-router.register("users", UserViewSet, basename="User")
-router.register("categories", CategoryViewSet, basename="Category")
+router.register("posts", PostViewSet, basename="posts")
+router.register("users", UserViewSet, basename="users")
+router.register("categories", CategoryViewSet, basename="categories")
 
 urlpatterns = [
     path("api/", include(router.urls)),
