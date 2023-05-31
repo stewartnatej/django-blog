@@ -1,5 +1,15 @@
 # A blogging and polling app, using Django
-- https://peak-social.herokuapp.com/
+https://peak-social.herokuapp.com/
+
+
+# API
+https://peak-social.herokuapp.com/api/
+
+When requesting specific categories like `/api/categories/Gardening`, note that the category is case-sensitive.
+This is not the case for posts and users. You can work around this by using `/api/categories?search=gardening`.
+
+To request a specific post, use `api/posts/my%20first%20post`.
+To request all posts from a user, you can use `/api/posts?search=anonymous`
 
 
 # Django
@@ -29,6 +39,10 @@ Helpful for testing code snippets
 If the database is not in the repo, you can create it with `python manage.py migrate` in .travis.yml.
 For this to work, you'll need to run `makemigrations` and commit the migration files to the repo.
 Environment variables are handled in the Travis UI.
+
+Travis is pretty simple but may try GitHub Actions next time.
+GitHub seems to be better at making the latest python versions available.
+Example file found in .github folder. Change to .yml if you want it to run.
 
 
 # Heroku
@@ -62,6 +76,18 @@ I want to run 3.11 on Heroku, but Travis doesn't offer 3.11.
 Keeping the versions ambiguous ensures they can be installed on both systems.
 The important thing is the Django version, due to some breaking changes.
 
+
+# Make it an API
+https://www.django-rest-framework.org/tutorial/quickstart/
+- `pip install djangorestframework`, add to requirements.txt, commit
+- The `permissions.IsAuthenticatedOrReadOnly` permission class lets you browse data even if not logged in:
+  ```
+  class UserViewSet(viewsets.ModelViewSet):
+      """API endpoint that allows users to be viewed or edited."""
+      queryset = User.objects.all().order_by("-date_joined")
+      serializer_class = UserSerializer
+      permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+  ```
 
 # async
 I never found a way to implement async templates, so the below info is just for historical purposes.

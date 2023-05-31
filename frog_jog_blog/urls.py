@@ -18,8 +18,17 @@ from django.contrib import admin
 from django.urls import path
 from django.urls.conf import include
 from django.contrib.auth.views import LoginView, LogoutView
+from rest_framework.routers import DefaultRouter
+from blogging.views import PostViewSet, UserViewSet, CategoryViewSet
+
+router = DefaultRouter()
+router.register("posts", PostViewSet, basename="posts")
+router.register("users", UserViewSet, basename="users")
+router.register("categories", CategoryViewSet, basename="categories")
 
 urlpatterns = [
+    path("api/", include(router.urls)),
+    path("api-auth/", include("rest_framework.urls", namespace="rest_framework")),
     path("", include("blogging.urls")),
     path("polling/", include("polling.urls")),
     path("admin/", admin.site.urls),

@@ -15,7 +15,7 @@ def list_view(request):
 class PollListView(ListView):
     """more robust class-based view"""
 
-    model = Poll
+    queryset = Poll.objects.all().order_by("-title")
     template_name = "polling/list.html"
 
 
