@@ -70,18 +70,7 @@ The important thing is the Django version, due to some breaking changes.
 # Make it an API
 https://www.django-rest-framework.org/tutorial/quickstart/
 - `pip install djangorestframework`, add to requirements.txt, commit
-- The tutorial shows you how to construct API collections for User and Group.
-  Adapt the instructions to construct API collections for User, Post, and Category
-- Create a `blogging/serializers.py`
-  Edit `blogging/views.py`, `frog_jog_blog/urls.py`, as well as `frog_jog_blog/settings.py`.
-- Prepend `api` to the router path in `frog_jog_blog/urls.py`: 
-  ```
-  path("api/", include(router.urls)),
-  path("api-auth/", include("rest_framework.urls", namespace="rest_framework")),
-  ```
-
-- For demonstration purposes, I used the `permissions.IsAuthenticatedOrReadOnly` permission class, 
-  which lets you browse your data even if you aren't logged in. Eg:
+- The `permissions.IsAuthenticatedOrReadOnly` permission class lets you browse data even if not logged in:
   ```
   class UserViewSet(viewsets.ModelViewSet):
       """API endpoint that allows users to be viewed or edited."""
